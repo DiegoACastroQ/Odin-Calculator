@@ -117,6 +117,17 @@ switch (pressedButton.type) {
             return;
         }
         if (state.currentInput === "" && state.previousInput !== "") {
+           
+            if (pressedButton.text === "=") {   
+                return;
+            }
+             if (state.operator !== null) {
+                state.operator = pressedButton.text;
+                state.previousOperator = state.operator;
+                display.textContent = display.textContent.slice(0, -3);
+                display.textContent += ` ${pressedButton.text} `;
+                return pressedButton.text;
+            }
             state.operator = pressedButton.text;
             state.previousOperator = state.operator;
             display.textContent += ` ${pressedButton.text} `;
@@ -133,9 +144,10 @@ switch (pressedButton.type) {
                 state.operator = null;
                 state.previousOperator = null;
             }else {
-            const result = operate(previousInput, currentInput, state.previousOperator);
+            const result = operate(previousInput, currentInput, state.operator);
             state.previousInput = result;
             state.currentInput = "";
+            display.textContent += ` ${pressedButton.text} `;
             state.operator = pressedButton.text;
             state.previousOperator = state.operator;
             }
