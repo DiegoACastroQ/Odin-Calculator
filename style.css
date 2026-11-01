@@ -12,7 +12,7 @@ body {
     background-color: #444343;
     box-sizing: border-box;
 }
-
+/* Display  */
 #displayContainer {
     display: flex;
     justify-content: center;
@@ -23,7 +23,13 @@ body {
     border-radius: 5px;
     margin-bottom: 20px;
 }
-
+#display {
+    font-size: 1.5em;
+    color: #000000;
+    text-align: center;
+    width: 100%;
+}
+/* Buttons Container */
 #buttonsContainer {
     display: flex;
     flex:auto;
@@ -32,10 +38,20 @@ body {
     margin-top: 20px;
     flex-direction: row;
 }
+#numericButtons {
+    gap: 10px;
+    flex: 3;
+}
+#numericButtons button {
+    flex: 1 1 calc(33.33% - 10px);
+}
 #nonNumericButtons {
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+#nonNumericButtons button {
+    flex: 1 1 calc(50% - 10px);
 }
 .buttonContainer {
     flex: 1;    
